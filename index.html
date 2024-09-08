@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinLoans Property Evaluation Calculator</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-top: 10px;
+        }
+
+        form {
+            border: 2px solid #2980b9;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="number"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #2980b9;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        #reraResult, #result, #amenitiesResult {
+            font-size: 1.1em;
+            color: #2c3e50;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #reraResult {
+            color: red;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .tab:hover {
+            background-color: #3498db;
+        }
+
+        .content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .tagline {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FinLoans Logo -->
+    <div class="logo-container">
+        <img src="finloans-logo.png" alt="FinLoans Logo" class="logo">
+    </div>
+
+    <h1>FinLoans Property Evaluation Calculator</h1>
+
+    <!-- Tagline -->
+    <div class="tagline">
+        Your Best Deal, Our Priority
+    </div>
+
+    <!-- Builder Search Section -->
+    <form>
+        <label for="builderSearch">Search for Builder or Project Name:</label>
+        <input type="text" id="builderSearch" placeholder="Enter builder or project name">
+        <button type="button" onclick="checkRERA()">Check RERA Status</button>
+        <p id="reraResult"></p>
+    </form>
+
+    <!-- Property Details Input -->
+    <form id="propertyEvaluator">
+        <label for="price">Price per Square Foot (₹):</label>
+        <input type="number" id="price" min="1000" max="10000" placeholder="Enter price per sq ft">
+
+        <label for="spaciousness">Spaciousness (sq. ft.):</label>
+        <input type="number" id="spaciousness" min="200" max="5000" placeholder="Enter spaciousness in sq ft">
+
+        <button type="button" onclick="calculateScore()">Evaluate Property</button>
+        <p id="result"></p>
+    </form>
+
+    <!-- Tabs for Additional Information -->
+    <div class="tabs">
+        <div class="tab" onclick="showContent('amenities')">Amenities</div>
+        <div class="tab" onclick="showContent('location')">Location</div>
+        <div class="tab" onclick="showContent('reputation')">Brand Reputation</div>
+        <div class="tab" onclick="showContent('valuation')">Valuation Metrics</div>
+    </div>
+
+    <div id="amenities" class="content">
+        <h2>Amenities Available:</h2>
+        <p id="amenitiesResult">Parking, Swimming Pool, Gym, Park...</p>
+    </div>
+
+    <div id="location" class="content">
+        <h2>Location Details:</h2>
+        <p>Nearby Schools, Colleges, Hospitals, Railway, Airport...</p>
+    </div>
+
+    <div id="reputation" class="content">
+        <h2>Brand Reputation:</h2>
+        <p>High-end developer with multiple successful projects...</p>
+    </div>
+
+    <div id="valuation" class="content">
+        <h2>Valuation Metrics:</h2>
+        <p>Fair Market Value, Appreciation Potential...</p>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+        For more details, contact FinLoans on 9827603070
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
